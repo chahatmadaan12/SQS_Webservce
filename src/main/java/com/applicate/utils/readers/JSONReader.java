@@ -1,11 +1,11 @@
 package com.applicate.utils.readers;
 
+import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.stereotype.Component;
 
 import com.applicate.utils.FileUtils;
 
-import net.minidev.json.JSONObject;
 @Component
 public class JSONReader implements FileReader<JSONObject>{
 	
