@@ -8,17 +8,17 @@ import org.springframework.stereotype.Component;
 @Scope(value="prototype")
 public class ServiceConfigurationImpl implements DefaultServiceConfiguration {
     @Autowired
-	Notification notification;
+	private Notification notification;
 	@Autowired
-    Email email;
+	private Email email;
 	@Autowired
-	WhatsApp whatsapp;
+	private WhatsApp whatsapp;
 
-	public Notification getNotf() {
+	public Notification getNotification() {
 		return notification;
 	}
 
-	public void setNotf(Notification notification) {
+	public void setNotification(Notification notification) {
 		this.notification = notification;
 	}
 
@@ -38,4 +38,11 @@ public class ServiceConfigurationImpl implements DefaultServiceConfiguration {
 		this.whatsapp = whatsapp;
 	}
 
+	@Override
+	public String toString() {
+		return "ServiceConfigurationImpl [notification=" + notification + ", email=" + email + ", whatsapp=" + whatsapp
+				+ "]";
+	}
+    
+	
 }

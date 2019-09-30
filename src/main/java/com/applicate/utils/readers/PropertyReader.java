@@ -2,6 +2,7 @@ package com.applicate.utils.readers;
 
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.applicate.utils.FileUtils;
@@ -15,7 +16,7 @@ public class PropertyReader implements FileReader<Properties>{
 		   throw new Throwable("Invalid properties file extention");
 		}
 		Properties properties = new Properties();
-		properties.load(getClass().getClassLoader().getResourceAsStream(filePath));
+		properties.load(new java.io.FileReader(filePath));
 		return properties;
 	}
 

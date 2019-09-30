@@ -2,12 +2,13 @@ package com.applicate.utils.readers;
 
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.applicate.utils.FileUtils;
 
 @Component
-public class JSONReader implements FileReader<JSONObject>{
+public class JsonReader implements FileReader{
 	
 	private static JSONParser parser = new JSONParser();
 	
@@ -17,7 +18,7 @@ public class JSONReader implements FileReader<JSONObject>{
 		if(!"json".equalsIgnoreCase(extention)) {
 		   throw new Throwable("Invalid json file extention");
 		}
-		return (JSONObject) parser.parse(filePath);
+		return new JSONObject(parser.parse(new java.io.FileReader(filePath)).toString());
 	}
 
 }
