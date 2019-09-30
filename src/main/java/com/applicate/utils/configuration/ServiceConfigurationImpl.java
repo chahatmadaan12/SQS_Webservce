@@ -13,6 +13,8 @@ public class ServiceConfigurationImpl implements DefaultServiceConfiguration {
 	private Email email;
 	@Autowired
 	private WhatsApp whatsapp;
+	@Autowired
+	private Azure azure;
 
 	public Notification getNotification() {
 		return notification;
@@ -36,6 +38,14 @@ public class ServiceConfigurationImpl implements DefaultServiceConfiguration {
 
 	public void setWhatsapp(WhatsApp whatsapp) {
 		this.whatsapp = whatsapp;
+	}
+
+	public Azure getAzure() {
+		return azure;
+	}
+
+	public void setAzure(Azure azure) {
+		this.azure = azure;
 	}
 
 	@Override

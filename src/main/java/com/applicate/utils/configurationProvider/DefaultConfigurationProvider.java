@@ -1,6 +1,6 @@
 package com.applicate.utils.configurationProvider;
 
-import static com.applicate.utils.configurationProvider.ConfigurationConstants.APIKEY;
+import static com.applicate.utils.configurationProvider.ConfigurationConstants.*;
 import static com.applicate.utils.configurationProvider.ConfigurationConstants.EMAIL;
 import static com.applicate.utils.configurationProvider.ConfigurationConstants.FCM;
 import static com.applicate.utils.configurationProvider.ConfigurationConstants.NOTIFICATION;
@@ -20,6 +20,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import com.applicate.utils.configuration.Azure;
 import com.applicate.utils.configuration.DefaultServiceConfiguration;
 import com.applicate.utils.configuration.Email;
 import com.applicate.utils.configuration.Notification;
@@ -29,8 +30,8 @@ import com.applicate.utils.readers.FileReader;
 
 @Component
 public class DefaultConfigurationProvider implements ConfigurationProvider {
-	
-	public static HashMap<String, DefaultServiceConfiguration> provider=new HashMap();
+
+	public static HashMap<String, DefaultServiceConfiguration> provider = new HashMap();
 
 	@Autowired
 //	@Qualifier(value = "${filereader}")
@@ -39,14 +40,14 @@ public class DefaultConfigurationProvider implements ConfigurationProvider {
 
 	@Autowired
 	private DefaultServiceConfiguration defConfig;
-	
+
 	@Autowired
 	private ApplicationContext ctx;
 
 	@Value("${configuration}")
 	private String filePath;
 
-    @PostConstruct
+	@PostConstruct
 	private void load() {
 		if (CollectionUtils.isEmpty(provider)) {
 			try {
@@ -80,36 +81,38 @@ public class DefaultConfigurationProvider implements ConfigurationProvider {
 
 	private DefaultServiceConfiguration setServiceConfigurationImplVariables(ServiceConfigurationImpl bean,
 			JSONObject configs) {
-		if(configs!=null)
-		for (String injectedObjName : JSONObject.getNames(configs)) {
-			switch (injectedObjName) {
-			case NOTIFICATION:
-                bean.setNotification(ctx.getBean(Notification.class,configs.getJSONObject(injectedObjName)));
-				break;
-			case EMAIL:
-				bean.setEmail(ctx.getBean(Email.class,configs.getJSONObject(injectedObjName)));
-				break;
-			case WHATSAPP:
-                bean.setWhatsapp(ctx.getBean(WhatsApp.class,configs.getJSONObject(injectedObjName)));
-				break;
-			default:
-				break;
+		if (configs != null)
+			for (String injectedObjName : JSONObject.getNames(configs)) {
+				switch (injectedObjName) {
+				case NOTIFICATION:
+					bean.setNotification(ctx.getBean(Notification.class, configs.getJSONObject(injectedObjName)));
+					break;
+				case EMAIL:
+					bean.setEmail(ctx.getBean(Email.class, configs.getJSONObject(injectedObjName)));
+					break;
+				case WHATSAPP:
+					bean.setWhatsapp(ctx.getBean(WhatsApp.class, configs.getJSONObject(injectedObjName)));
+					break;
+				case AZURE:
+					bean.setAzure(ctx.getBean(Azure.class, configs.getJSONObject(injectedObjName)));
+					break;
+				default:
+					break;
+				}
 			}
-		}
 		return bean;
 	}
 
 	@Override
 	public boolean reLoad() {
-	    provider = null;
+		provider = null;
 		load();
 		return provider != null;
 	}
 
 	@Override
 	public String toString() {
-		return "DefaultConfigurationProvider [fileReader=" + fileReader+ ", filePath=" + filePath
-				+ "]"+provider;
+		return "DefaultConfigurationProvider [fileReader=" + fileReader + ", filePath=" + filePath + "]" + provider;
 	}
 
 }

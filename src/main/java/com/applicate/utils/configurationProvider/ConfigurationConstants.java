@@ -8,4 +8,9 @@ public interface ConfigurationConstants {
 	String FCM = "FCM";
 	String WHATSAPP = "WhatsApp";
 	String APIKEY = "apiKey";
+	String AZURE = "Azure";
+	String ACCOUNTNAME = "accountName";
+	String ACCOUNTKEY = "accountKey";
+	String CONTAINER ="container";
+	String BLOBURL = "blobUrl";
 }

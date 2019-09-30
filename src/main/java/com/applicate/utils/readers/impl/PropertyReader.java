@@ -1,4 +1,4 @@
-package com.applicate.utils.readers;
+package com.applicate.utils.readers.impl;
 
 import java.util.Properties;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.applicate.utils.FileUtils;
+import com.applicate.utils.readers.FileReader;
 @Component
 public class PropertyReader implements FileReader<Properties>{
 
