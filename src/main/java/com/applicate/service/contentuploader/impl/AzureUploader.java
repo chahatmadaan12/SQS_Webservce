@@ -35,14 +35,17 @@ public class AzureUploader implements ContentUploader {
 			blob.deleteIfExists();
 			blob.upload(is, sourceFileSize);
 			String blobKey = encrypt.decrypt(azureProperties.getBlobUrl().toString()) + "" + fileName + "";
-			returnObj.put("blobKey", blobKey);
+			returnObj.put("blobKey", blobKey)
+			   .put("fileSize", sourceFileSize)
+			   .put("fileName", fileName);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return returnObj;
 	}
 
-	public CloudBlobContainer getContainer() throws Exception {
+	private CloudBlobContainer getContainer() throws Exception {
 		String storageConnectionString = "DefaultEndpointsProtocol=http;" + "AccountName="
 				+ encrypt.decrypt(azureProperties.getAccountName().toString()) + ";" + "AccountKey="
 				+ encrypt.decrypt(azureProperties.getAccountKey().toString()) + "";

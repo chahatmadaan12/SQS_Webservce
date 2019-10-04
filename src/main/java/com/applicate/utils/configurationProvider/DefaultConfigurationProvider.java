@@ -35,7 +35,7 @@ public class DefaultConfigurationProvider implements ConfigurationProvider {
 
 	@Autowired
 //	@Qualifier(value = "${filereader}")
-	@Qualifier("jsonReader")
+	@Qualifier("yamlReader")
 	private FileReader fileReader;
 
 	@Autowired

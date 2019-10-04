@@ -1,0 +1,14 @@
+h6{
+	color:red;
+	align:center;
+}
+td{
+	color:Green;
+	align:left;
+	background-color:orange;
+}
+div{
+	width:300px;
+	height:300px;
+	boder:solid 3px;
+}

@@ -2,7 +2,6 @@ package com.applicate.utils.readers.impl;
 
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.applicate.utils.FileUtils;

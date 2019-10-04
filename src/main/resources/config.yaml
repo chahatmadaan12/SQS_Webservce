@@ -1,0 +1,29 @@
+"Perfetti_Rural":
+  "Notification":
+    "FCM": "xyz"
+  "Email":
+    "userName": "abc"
+    "password": "test1"
+  "WhatsApp":
+     "apiKey": "test1"
+  "Azure":
+     "accountName" : "qdmG7ykMzhsIHnDK/V0XYA=="
+     "accountKey" : "vAUjj6UCZFGENRfTZdFXGjnAKOOz65a3Gjn8fawPEo/oLZLmuUvWM62t/M95+CTkyVUMfAghGBjsiz7khdAi7nCINbtM5CXwR60JfCHJ0ZYZYoPvdcr/fa8wfkUNXG5euK1w3JNJFHg="
+     "container" : "3rfLJ47hQ7cPS/OgOT1CDwyFwqhrJZUq"
+     "blobUrl" : "S+6YFFvAbfYVIndOLgwKWApXXuYNaN10/Ez/xZsUF8FEsT7rauXl9/HwqN8UC3aEmvsjSJXmM9tA+34ihnztiQ=="
+"ITCR":
+  "Notification":
+    "FCM": "xyz"
+  "Email":
+    "userName": "abc"
+    "password": "test1"
+  "WhatsApp":
+     "apiKey": "test1"
+"Vistaar":
+  "Notification":
+    "FCM": "xyz"
+  "Email":
+    "userName": "abc"
+    "password": "test1"
+  "WhatsApp":
+     "apiKey": "test1" 
